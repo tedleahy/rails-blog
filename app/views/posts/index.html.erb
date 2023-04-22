@@ -1,9 +1,19 @@
 <h1>Posts</h1>
 
-<ul>
+<table>
+  <th>Post</th>
+  <th></th>
+
   <% @posts.each do |post| %>
-    <li>
-      <%= link_to post.title, post %>
-    </li>
+    <tr>
+      <td><%= link_to post.title, post %></td>
+      <td>
+        <%= link_to "Edit", edit_post_path(post) %>
+        <%= link_to "Delete", post_path(post), data: {
+          turbo_method: :delete,
+          turbo_confirm: 'Are you sure?',
+        } %>
+      </td>
+    </tr>
   <% end %>
-</ul>
+</table>
