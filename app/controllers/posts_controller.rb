@@ -19,6 +19,10 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @back_link = {
+      text: 'Back to all posts',
+      url: posts_path
+    }
   end
 
   def edit

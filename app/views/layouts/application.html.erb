@@ -11,6 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <% if @back_link %>
+        <div class="mt-4">
+          <%= link_to '← ' + @back_link[:text], @back_link[:url] %>
+        </div>
+      <% end %>
+
+      <div class="p-4">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
